@@ -28,13 +28,33 @@ const books = [
   }
 ];
 
+
+
 let container = document.createElement("div")
 container.classList.add(".book")
 container.style.margin = "0 auto"
+container.style.width = "100%"
 container.style.padding = "0"
 container.style.display = "flex"
 container.style.flexWrap = "wrap"
 container.style.justifyContent = "center"
+
+
+let newOrder = [...books];
+newOrder.sort((a, b) => {
+  let fa = a.author.split(" ").reverse().join(", ").toLowerCase();
+  let fb = b.author.split(" ").reverse().join(", ").toLowerCase();
+
+  if (fa < fb) {
+    return -1;
+  }
+
+  if (fa > fb) {
+    return 1;
+  }
+  return 0;
+
+})
 
 
 const randomColour = () => {
@@ -46,7 +66,7 @@ const randomColour = () => {
   return colour;
 }
 
-books.map(bookInfo => {
+newOrder.map(bookInfo => {
   // creating a card
   let bookCard = document.createElement("div")
 
@@ -92,13 +112,18 @@ books.map(bookInfo => {
   bookTitle.style.fontSize = "18px"
 
 
-
   // create author
   let bookAuthor = document.createElement("h3")
   // add settings
   bookAuthor.innerHTML = bookInfo.author.split(" ").reverse().join(", ");
   bookAuthor.style.fontSize = "14px"
   bookAuthor.style.color = "#a4a8ad"
+
+  var newOrder = [];
+  books.sort(function (a, b) {
+    newOrder = a.author.split(" ").reverse().join(" ") - b.author.split(" ").reverse().join(" ");
+    return newOrder
+  })
 
 
   // create img
