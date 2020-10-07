@@ -1,3 +1,4 @@
+// –––––––––– ORIGINAL DATA ––––––––––
 const books = [
   {
     title: "The Design of EveryDay Things",
@@ -30,6 +31,7 @@ const books = [
 
 
 
+// –––––––––– MAIN Container ––––––––––
 let container = document.createElement("div")
 container.classList.add(".book")
 container.style.margin = "0 auto"
@@ -39,6 +41,9 @@ container.style.display = "flex"
 container.style.flexWrap = "wrap"
 container.style.justifyContent = "center"
 
+
+// –––––––––– Order/.sort() Function ––––––––––
+// new variable created with .sort() function
 
 let newOrder = [...books];
 newOrder.sort((a, b) => {
@@ -56,20 +61,11 @@ newOrder.sort((a, b) => {
 
 })
 
-
-const randomColour = () => {
-  let r = Math.floor(Math.random() * 256)
-  let g = Math.floor(Math.random() * 256)
-  let b = Math.floor(Math.random() * 256)
-  let a = Math.random().toFixed(2);
-  let colour = `rgba(${r},${g},${b},${a} )`;
-  return colour;
-}
-
+// –––––––––– Element Creating ––––––––––
 newOrder.map(bookInfo => {
-  // creating a card
-  let bookCard = document.createElement("div")
 
+  // –––––––––– Create main bookCard ––––––––––
+  let bookCard = document.createElement("div")
   bookCard.style.margin = "0 auto"
   bookCard.style.padding = "0"
   bookCard.classList.add("bookCard")
@@ -80,9 +76,12 @@ newOrder.map(bookInfo => {
   bookCard.style.borderRadius = "1.5%"
   bookCard.style.boxSizing = "border-box"
 
+
+  // –––––––––– Create Information Div ––––––––––
   let infoCard = document.createElement("div");
   infoCard.style.padding = "15px"
 
+  // –––––––––– Create Read Div ––––––––––
   let readCard = document.createElement("div")
   readCard.style.border = "1px solid lightGrey"
   readCard.style.backgroundColor = "#f7f7f7"
@@ -92,58 +91,52 @@ newOrder.map(bookInfo => {
   readCard.style.justifyContent = "flex-end"
   readCard.style.left = "0px"
 
-  let readTab = document.createElement("div")
-  readTab.innerHTML = bookInfo.alreadyRead ? "Read" : "To read";
-  readTab.style.backgroundColor = bookInfo.alreadyRead ? "#50b94a" : "#6b727d";
-  readTab.style.color = "white"
-  readTab.style.padding = "1px"
-  readTab.style.width = "50px"
-  readTab.style.fontSize = "12px"
-  readTab.style.fontStyle = "italic"
-  readTab.style.borderRadius = "25%"
+  // –––––––––– Create Read Button ––––––––––
+  let readButton = document.createElement("div")
+  readButton.innerHTML = bookInfo.alreadyRead ? "Read" : "To read";
+  readButton.style.backgroundColor = bookInfo.alreadyRead ? "#50b94a" : "#6b727d";
+  readButton.style.color = "white"
+  readButton.style.padding = "1px"
+  readButton.style.width = "50px"
+  readButton.style.fontSize = "12px"
+  readButton.style.fontStyle = "italic"
+  readButton.style.borderRadius = "25%"
 
-
-
-
-  // create title
+  // –––––––––– Create Title ––––––––––
   let bookTitle = document.createElement("h2")
   // add settings
   bookTitle.innerHTML = bookInfo.title;
   bookTitle.style.fontSize = "18px"
 
 
-  // create author
+  // –––––––––– Create Author ––––––––––
   let bookAuthor = document.createElement("h3")
   // add settings
   bookAuthor.innerHTML = bookInfo.author.split(" ").reverse().join(", ");
   bookAuthor.style.fontSize = "14px"
   bookAuthor.style.color = "#a4a8ad"
 
-  var newOrder = [];
-  books.sort(function (a, b) {
-    newOrder = a.author.split(" ").reverse().join(" ") - b.author.split(" ").reverse().join(" ");
-    return newOrder
-  })
-
-
-  // create img
+  // –––––––––– Create IMG ––––––––––
   let bookImage = document.createElement("img")
   // add settings
   bookImage.src = bookInfo.img;
-  bookImage.url = bookInfo.img;
   bookImage.style.border = "2px solid black"
   bookImage.style.overflow = "hidden"
   bookImage.style.width = "100%"
   bookImage.style.height = "350px"
 
+  // add link(?)
+  bookImage.href = bookInfo.img;
 
-  // append the bookCard info
-  readCard.append(readTab)
+
+  // –––––––––– append Information ––––––––––
+  readCard.append(readButton)
   infoCard.append(bookTitle, bookAuthor)
   bookCard.append(bookImage, infoCard, readCard)
   container.append(bookCard)
 })
 
+// –––––––––– append ALL Information ––––––––––
 document.querySelector(".book-list").append(container)
 
 
