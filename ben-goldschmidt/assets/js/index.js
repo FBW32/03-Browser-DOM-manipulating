@@ -83,7 +83,7 @@ newOrder.map(bookInfo => {
 
   // –––––––––– Create Read Div ––––––––––
   let readCard = document.createElement("div")
-  readCard.style.border = "1px solid lightGrey"
+  readCard.style.borderTop = "1px solid lightGrey"
   readCard.style.backgroundColor = "#f7f7f7"
   readCard.style.padding = "12px"
   readCard.style.display = "flex"
@@ -118,6 +118,7 @@ newOrder.map(bookInfo => {
 
   // –––––––––– Create IMG ––––––––––
   let bookImage = document.createElement("img")
+  console.dir(bookImage)
   // add settings
   bookImage.src = bookInfo.img;
   bookImage.style.border = "2px solid black"
