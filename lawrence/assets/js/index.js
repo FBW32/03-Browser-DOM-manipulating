@@ -42,7 +42,7 @@ mainL.style.flexWrap="wrap";
 books.map((item)=>{
   let bookBox = document.createElement("div")
   bookBox.style.width="300px"
-  bookBox.style.height="500px"
+  bookBox.style.height="600px"
   bookBox.style.overflow="hidden"
   bookBox.style.display="flex"
   bookBox.style.flexDirection="column"
@@ -90,11 +90,11 @@ books.map((item)=>{
   
 
   let lastBox = document.createElement("div")
-  lastBox.style.height="100"
+  lastBox.style.height="150"
   lastBox.style.width="250"
   lastBox.style.background= "#adaaaa"
   lastBox.style.textAlign="right"
-  lastBox.style.margin="5px"
+  lastBox.style.margin="10px"
 
   lastBox.appendChild(readSt)
   column.append(titleB,bookP)
