@@ -29,14 +29,17 @@ const books = [
   }
 ];
 
-
+// let body = document.querySelector("body");
+// body.style.margin = "0 auto"
 
 // –––––––––– MAIN Container ––––––––––
 let container = document.createElement("div")
 container.classList.add(".book")
-container.style.margin = "0 auto"
+// container.style.margin = "0 auto"
 container.style.width = "100%"
 container.style.padding = "0"
+
+// sort into the middle
 container.style.display = "flex"
 container.style.flexWrap = "wrap"
 container.style.justifyContent = "center"
@@ -44,6 +47,8 @@ container.style.justifyContent = "center"
 
 // –––––––––– Order/.sort() Function ––––––––––
 // new variable created with .sort() function
+
+// author:"christian, brian" ,
 
 let newOrder = [...books];
 newOrder.sort((a, b) => {
@@ -54,11 +59,9 @@ newOrder.sort((a, b) => {
     return -1;
   }
 
-  if (fa > fb) {
+  else {
     return 1;
   }
-  return 0;
-
 })
 
 // –––––––––– Element Creating ––––––––––
@@ -66,7 +69,7 @@ newOrder.map(bookInfo => {
 
   // –––––––––– Create main bookCard ––––––––––
   let bookCard = document.createElement("div")
-  bookCard.style.margin = "0 auto"
+  // bookCard.style.margin = "0 auto"
   bookCard.style.padding = "0"
   bookCard.classList.add("bookCard")
   bookCard.style.overflow = "hidden";
@@ -75,6 +78,13 @@ newOrder.map(bookInfo => {
   bookCard.style.border = "1px solid lightGrey"
   bookCard.style.borderRadius = "1.5%"
   bookCard.style.boxSizing = "border-box"
+
+  // create anchot car/div
+  // <a></a>
+  // –––––––––– Create Image Div ––––––––––
+  // let imgCard = document.createElement("div");
+  // infoCard.style.padding = "15px
+  // anchor tag
 
 
   // –––––––––– Create Information Div ––––––––––
