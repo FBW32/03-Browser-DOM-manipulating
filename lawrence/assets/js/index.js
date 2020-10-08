@@ -41,11 +41,13 @@ mainL.style.flexWrap="wrap";
 
 books.map((item)=>{
   let bookBox = document.createElement("div")
-  bookBox.style.width="300px"
-  bookBox.style.height="600px"
+  bookBox.style.width="265px"
+  bookBox.style.height="490px"
   bookBox.style.overflow="hidden"
   bookBox.style.display="flex"
   bookBox.style.flexDirection="column"
+  bookBox.style.border="3px solid gray"
+  bookBox.style.margin="10px"
 
   let bookArr = item.author.split(" ")
   let [firstName,lastName] = bookArr;
@@ -70,31 +72,32 @@ books.map((item)=>{
   let column = document.createElement("div")
   column.classList.add("column")
   column.style.width="260"
-  column.style.height="100"
-  column.style.overflow="hidden"
+  column.style.height="150"
+  column.style.overflow = "hidden"
+  
   
 
   let bookPic = document.createElement("img")
   bookPic.classList.add("pic")
   bookPic.src = item.img
   bookPic.height="300"
-  bookPic.width="250"
+  bookPic.width="260"
   bookPic.style.border="5px solid black"
   
   let readSt = document.createElement("button")
   readSt.innerText= item.alreadyRead ? "Read": "to Read"
   readSt.style.backgroundColor = item.alreadyRead ? "#247c33": "gray"
-  readSt.style.padding="5px"
+  readSt.style.padding="2px"
   readSt.style.borderRadius="30%"
   readSt.style.height="30"
   
 
   let lastBox = document.createElement("div")
-  lastBox.style.height="150"
-  lastBox.style.width="250"
+  lastBox.style.height="100px"
+  lastBox.style.width="260"
   lastBox.style.background= "#adaaaa"
   lastBox.style.textAlign="right"
-  lastBox.style.margin="10px"
+  lastBox.style.paddingTop="30px"
 
   lastBox.appendChild(readSt)
   column.append(titleB,bookP)
